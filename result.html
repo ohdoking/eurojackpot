@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eurojackpot Lottery</title>
+    <title>Eurojackpot Lottery - Result</title>
     <meta name="google-adsense-account" content="ca-pub-8114066175171134">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8114066175171134"
      crossorigin="anonymous"></script>
@@ -19,8 +19,8 @@
 
     <header>
         <div class="header-content">
-            <h1><i class="fa-solid fa-star"></i> <span data-i18n="title">Eurojackpot</span> <i class="fa-solid fa-star"></i></h1>
-            <p data-i18n="subtitle">Your weekly chance to win big!</p>
+            <h1><i class="fa-solid fa-star"></i> <span data-i18n="resultTitle">Your Lucky Numbers</span> <i class="fa-solid fa-star"></i></h1>
+            <p data-i18n="resultSubtitle">Here are your generated numbers.</p>
             <div class="language-switcher">
                 <i class="fa-solid fa-globe"></i>
                 <select id="language-select">
@@ -35,35 +35,39 @@
     <div class="main-container">
         <main>
             <div class="lottery-card">
-                <h2 data-i18n="cardTitle">Generate Your Lucky Numbers</h2>
-                <p data-i18n="generateDescription">Click the button below to generate your lucky numbers and see if you are the next millionaire!</p>
-                <button id="generator-btn"><i class="fa-solid fa-dice"></i> <span data-i18n="generateButton">Generate New Numbers</span></button>
-            </div>
-
-            <div class="how-it-works">
-                <h3 data-i18n="howItWorksTitle">How It Works</h3>
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-icon"><i class="fa-solid fa-1"></i></div>
-                        <p data-i18n="step1">Click the "Generate" button.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-icon"><i class="fa-solid fa-2"></i></div>
-                        <p data-i18n="step2">Watch the treasure chest open.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-icon"><i class="fa-solid fa-3"></i></div>
-                        <p data-i18n="step3">See your lucky numbers!</p>
-                    </div>
-                </div>
+                <h2 data-i18n="cardTitle">Your Lucky Numbers</h2>
+                <lottery-numbers></lottery-numbers>
+                <a href="index.html" class="secondary-button" id="back-btn"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="backButton">Back to Generator</span></a>
             </div>
         </main>
+        <aside>
+            <div id="disqus_thread"></div>
+        </aside>
     </div>
 
     <footer>
         <p data-i18n="footer">&copy; 2026 OhDoKing Builder. All Rights Reserved.</p>
     </footer>
     
+    <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        
+        var disqus_config = function () {
+        this.page.url = window.location.href;
+        this.page.identifier = window.location.href;
+        };
+        
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://eurojackpot.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
     <script src="main.js"></script>
 </body>
 </html>
