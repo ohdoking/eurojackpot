@@ -4,23 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eurojackpot Lottery</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22256%22 height=%22256%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%234a90e2%22></rect><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 font-size=%2290%22>💶</text></svg>" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Eurojackpot</h1>
+        <h1><i class="fa-solid fa-star"></i> Eurojackpot <i class="fa-solid fa-star"></i></h1>
         <p>Your weekly chance to win big!</p>
-        <button id="theme-switcher-btn">Toggle Theme</button>
+        <button id="theme-switcher-btn"><i class="fa-solid fa-moon"></i> Toggle Theme</button>
     </header>
 
-    <main>
-        <div class="lottery-card">
-            <h2>Your Lucky Numbers</h2>
-            <lottery-numbers></lottery-numbers>
-            <button id="generator-btn">Generate New Numbers</button>
-        </div>
-        <div id="disqus_thread"></div>
-    </main>
+    <div class="main-container">
+        <main>
+            <div class="lottery-card">
+                <h2>Your Lucky Numbers</h2>
+                <lottery-numbers></lottery-numbers>
+                <button id="generator-btn"><i class="fa-solid fa-dice"></i> Generate New Numbers</button>
+            </div>
+        </main>
+        <aside>
+            <div id="disqus_thread"></div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 OhDoKing Builder. All Rights Reserved.</p>
+    </footer>
     
     <script>
         /**
@@ -28,7 +39,7 @@
         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
         
         var disqus_config = function () {
-        this.page.url = 'https://eurojackpot.pages.dev/';  // Replace with your page's canonical URL
+        this.page.url = 'https.eurojackpot.pages.dev';  // Replace with your page's canonical URL
         this.page.identifier = 'dfdf'; // Replace with your page's unique identifier
         };
         

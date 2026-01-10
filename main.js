@@ -21,15 +21,25 @@ class LotteryNumbers extends HTMLElement {
                     font-size: 1.5rem;
                     font-weight: bold;
                     color: white;
+                    transform: scale(0);
+                    animation: flip 0.5s ease-out forwards;
                 }
                 .main-number {
-                    background-color: #007bff;
-                    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.4);
+                    background-color: #4a90e2;
+                    box-shadow: 0 2px 5px rgba(74, 144, 226, 0.4);
 
                 }
                 .euro-number {
-                    background-color: #ffc107;
-                    box-shadow: 0 2px 5px rgba(255, 193, 7, 0.4);
+                    background-color: #f5a623;
+                    box-shadow: 0 2px 5px rgba(245, 166, 35, 0.4);
+                }
+                @keyframes flip {
+                    from {
+                        transform: scale(0) rotateY(180deg);
+                    }
+                    to {
+                        transform: scale(1) rotateY(0deg);
+                    }
                 }
             </style>
             <div class="numbers-container main-numbers"></div>
@@ -61,12 +71,13 @@ class LotteryNumbers extends HTMLElement {
     _renderNumbers(numbers, containerSelector, numberClass) {
         const container = this.shadowRoot.querySelector(containerSelector);
         container.innerHTML = '';
-        for (const number of numbers) {
+        numbers.forEach((number, index) => {
             const el = document.createElement('div');
             el.className = `number ${numberClass}`;
             el.textContent = number;
+            el.style.animationDelay = `${index * 0.1}s`;
             container.appendChild(el);
-        }
+        });
     }
 }
 
@@ -93,4 +104,3 @@ themeSwitcherBtn.addEventListener('click', () => {
         localStorage.setItem('theme', 'dark-mode');
     }
 });
-
