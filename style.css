@@ -67,14 +67,7 @@ body {
     transform: translateY(-2px);
 }
 
-.main-container {
-    display: flex;
-    gap: 2rem;
-    width: 100%;
-    max-width: 1200px;
-    align-items: flex-start;
-    margin-top: 2rem;
-}
+    margin: 2rem auto;
 
 main {
     flex: 2;
