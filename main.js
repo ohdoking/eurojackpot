@@ -199,7 +199,7 @@ if(languageSelect) {
 }
 
 
-if (window.location.pathname.includes('generator.html')) {
+
     const generatorBtn = document.getElementById('generator-btn');
     if(generatorBtn) {
         generatorBtn.addEventListener('click', () => {
@@ -207,4 +207,3 @@ if (window.location.pathname.includes('generator.html')) {
             window.location.href = `loading.html?main=${mainNumbers.join(',')}&euro=${euroNumbers.join(',')}`;
         });
     }
-}
