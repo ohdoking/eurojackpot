@@ -41,7 +41,7 @@ function generateStatisticalNumbers(conditions) {
     // Filter by weather condition
     if (weatherCondition) {
         filteredDraws = filteredDraws.filter(draw =>
-            draw.weather && draw.weather.condition && draw.weather.condition.toLowerCase() === weatherCondition.toLowerCase()
+            draw.weather && draw.weather.condition.toLowerCase() === weatherCondition.toLowerCase()
         );
     }
 
@@ -115,7 +115,7 @@ function getApproximateDaylightMinutes(date) {
 
     // Very rough approximation: longer days in summer, shorter in winter
     // Values are just illustrative and not geographically accurate
-    if (month >= 5 && month >= 7) { // June, July, August (summer)
+    if (month >= 5 && month <= 7) { // June, July, August (summer)
         return 900; // 15 hours
     } else if (month >= 11 || month <= 1) { // December, January, February (winter)
         return 500; // ~8.3 hours
@@ -236,18 +236,39 @@ async function fetchData() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const { allDraws: fetchedDraws, translations: fetchedTranslations } = await fetchData();
-  allDraws = fetchedDraws; // Assign to global allDraws
-  translations = fetchedTranslations; // Assign to global translations
-
+    const { allDraws: fetchedDraws, translations: fetchedTranslations } = await fetchData();
   console.log('Draw data loaded:', allDraws.length, 'draws');
-  console.log('Translations loaded:', Object.keys(translations).length, 'languages'); // Corrected to use Object.keys(translations).length
+  console.log('translations data loaded:', translations.length, 'translations');
+  // Any other initialization that depends on allDraws can go here later
+});
 
-  // Any other initialization that depends on allDraws or translations can go here later
-  
-  // Call setLanguage after translations are loaded
-  const languageSelect = document.getElementById('language-select');
-  if(languageSelect) {
+const themeSwitcherBtn = document.getElementById('theme-switcher-btn');
+const body = document.body;
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    body.classList.add(savedTheme);
+}
+
+themeSwitcherBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark-mode' : '');
+});
+
+
+
+const languageSelect = document.getElementById('language-select');
+
+function setLanguage(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        el.innerHTML = translations[lang][key];
+    });
+    document.documentElement.lang = lang;
+    localStorage.setItem('language', lang);
+}
+
+if(languageSelect) {
     const savedLanguage = localStorage.getItem('language');
     if (savedLanguage) {
         languageSelect.value = savedLanguage;
@@ -265,7 +286,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     languageSelect.addEventListener('change', (e) => {
         setLanguage(e.target.value);
     });
-  }
+}
+
+
 
     const generatorBtn = document.getElementById('generator-btn');
     if(generatorBtn) {
@@ -305,61 +328,3 @@ document.addEventListener('DOMContentLoaded', async () => {
             window.location.href = `loading.html?main=${mainNumbers.join(',')}&euro=${euroNumbers.join(',')}`;
         });
     }
-});
-
-const themeSwitcherBtn = document.getElementById('theme-switcher-btn');
-const body = document.body;
-
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-    body.classList.add(savedTheme);
-}
-
-themeSwitcherBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark-mode' : '');
-});
-
-
-
-const languageSelect = document.getElementById('language-select');
-
-function setLanguage(lang) {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.dataset.i18n;
-        if (translations[lang] && translations[lang][key]) {
-            el.innerHTML = translations[lang][key];
-        } else {
-            console.warn(`Translation missing for language: ${lang}, key: ${key}`);
-            if (translations['en'] && translations['en'][key]) {
-                el.innerHTML = translations['en'][key];
-            } else {
-                el.innerHTML = `[${key}]`;
-            }
-        }
-    });
-    document.documentElement.lang = lang;
-    localStorage.setItem('language', lang);
-}
-
-if(languageSelect) {
-    const savedLanguage = localStorage.getItem('language');
-    if (savedLanguage) {
-        languageSelect.value = savedLanguage;
-        setLanguage(savedLanguage);
-    } else {
-        const browserLanguage = navigator.language.split('-')[0]; // 'en-US' -> 'en'
-        if (translations[browserLanguage]) {
-            languageSelect.value = browserLanguage;
-            setLanguage(browserLanguage);
-        } else {
-            setLanguage('en');
-        }
-    }
-
-    languageSelect.addEventListener('change', (e) => {
-        setLanguage(e.target.value);
-    });
-}
-
-

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checking your numbers...</title>
+    <meta name="google-adsense-account" content="ca-pub-8114066175171134">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8114066175171134"
+     crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: linear-gradient(to top, var(--background-gradient-start, #f4f7f6), var(--background-gradient-end, #d8dee8));
+            color: var(--text-color, #333);
+        }
+        .treasure-chest {
+            width: 200px;
+            height: 150px;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        .chest-lid {
+            width: 200px;
+            height: 75px;
+            background: #8B4513;
+            border-radius: 10px 10px 0 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: bottom;
+            animation: open-lid 1.5s ease-in-out 0.5s forwards;
+        }
+        .chest-body {
+            width: 200px;
+            height: 75px;
+            background: #A0522D;
+            border-radius: 0 0 10px 10px;
+            position: absolute;
+            top: 75px;
+            left: 0;
+        }
+        .loading-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        @keyframes open-lid {
+            0% { transform: rotateX(0deg); }
+            100% { transform: rotateX(-120deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <canvas id="treasure-canvas" width="400" height="300"></canvas>
+        <h2 class="loading-text" data-i18n="loadingText">Checking your treasure...</h2>
+    </div>
+    <script src="treasure.js"></script>
+</body>
+</html>
