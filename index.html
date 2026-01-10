@@ -1,14 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eurojackpot Lottery</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <header>
+        <h1>Eurojackpot</h1>
+        <p>Your weekly chance to win big!</p>
+        <button id="theme-switcher-btn">Toggle Theme</button>
+    </header>
+
+    <main>
+        <div class="lottery-card">
+            <h2>Your Lucky Numbers</h2>
+            <lottery-numbers></lottery-numbers>
+            <button id="generator-btn">Generate New Numbers</button>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
 </body>
 </html>
