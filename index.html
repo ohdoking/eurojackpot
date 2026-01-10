@@ -12,57 +12,80 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home-page">
     <div class="theme-switcher-container">
         <button id="theme-switcher-btn"><i class="fa-solid fa-moon"></i></button>
     </div>
 
-    <header>
-        <div class="header-content">
-            <h1><i class="fa-solid fa-star"></i> <span data-i18n="title">Eurojackpot</span> <i class="fa-solid fa-star"></i></h1>
-            <p data-i18n="subtitle">Your weekly chance to win big!</p>
-            <div class="language-switcher">
-                <i class="fa-solid fa-globe"></i>
-                <select id="language-select">
-                    <option value="en">English</option>
-                    <option value="de">Deutsch</option>
-                    <option value="es">Español</option>
-                </select>
-            </div>
-        </div>
-    </header>
-
-    <div class="main-container">
-        <main>
-            <div class="lottery-card">
-                <h2 data-i18n="cardTitle">Generate Your Lucky Numbers</h2>
-                <p data-i18n="generateDescription">Click the button below to generate your lucky numbers and see if you are the next millionaire!</p>
-                <button id="generator-btn"><i class="fa-solid fa-dice"></i> <span data-i18n="generateButton">Generate New Numbers</span></button>
-            </div>
-
-            <div class="how-it-works">
-                <h3 data-i18n="howItWorksTitle">How It Works</h3>
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-icon"><i class="fa-solid fa-1"></i></div>
-                        <p data-i18n="step1">Click the "Generate" button.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-icon"><i class="fa-solid fa-2"></i></div>
-                        <p data-i18n="step2">Watch the treasure chest open.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-icon"><i class="fa-solid fa-3"></i></div>
-                        <p data-i18n="step3">See your lucky numbers!</p>
-                    </div>
+    <div class="page-wrapper">
+        <header>
+            <div class="header-content">
+                <h1><i class="fa-solid fa-star"></i> <span data-i18n="title">Eurojackpot Pro</span> <i class="fa-solid fa-star"></i></h1>
+                <p data-i18n="subtitle">Your ultimate guide to the Eurojackpot lottery.</p>
+                <div class="language-switcher">
+                    <i class="fa-solid fa-globe"></i>
+                    <select id="language-select">
+                        <option value="en">English</option>
+                        <option value="de">Deutsch</option>
+                        <option value="es">Español</option>
+                    </select>
                 </div>
             </div>
-        </main>
+        </header>
+    
+        <div class="main-container">
+            <main>
+                <div class="lottery-card">
+                    <h2 data-i18n="cardTitle">Generate Your Lucky Numbers</h2>
+                    <p data-i18n="generateDescription">Click the button below to generate your lucky numbers and see if you are the next millionaire!</p>
+                    <button id="generator-btn"><i class="fa-solid fa-dice"></i> <span data-i18n="generateButton">Generate New Numbers</span></button>
+                </div>
+    
+                <div class="how-it-works">
+                    <h3 data-i18n="howItWorksTitle">How It Works</h3>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-icon"><i class="fa-solid fa-1"></i></div>
+                            <p data-i18n="step1">Click the "Generate" button.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon"><i class="fa-solid fa-2"></i></div>
+                            <p data-i18n="step2">Watch the treasure chest open.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon"><i class="fa-solid fa-3"></i></div>
+                            <p data-i18n="step3">See your lucky numbers!</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    
+        <footer>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4 data-i18n="navTitle">Navigation</h4>
+                    <ul>
+                        <li><a href="index.html" class="active" data-i18n="navHome">Home</a></li>
+                        <li><a href="index.html" data-i18n="navGenerator">Generator</a></li>
+                        <li><a href="blog.html" data-i18n="navBlog">Blog</a></li>
+                        <li><a href="info.html" data-i18n="navInfo">Information</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 data-i18n="aboutTitle">About</h4>
+                    <ul>
+                        <li><a href="about.html" data-i18n="navAbout">About Us</a></li>
+                        <li><a href="contact.html" data-i18n="navContact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Eurojackpot Pro. All Rights Reserved.</p>
+                <p class="disclaimer" data-i18n="footerDisclaimer">Please play responsibly. You must be 18 or older to play.</p>
+            </div>
+        </footer>    
     </div>
-
-    <footer>
-        <p data-i18n="footer">&copy; 2026 OhDoKing Builder. All Rights Reserved.</p>
-    </footer>
     
     <script src="main.js"></script>
 </body>
