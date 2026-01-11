@@ -97,3 +97,15 @@ Enhance the website's trustworthiness and informativeness by implementing struct
   - Added checks within the `setLanguage` function to ensure `translations[lang]` and `translations[lang][key]` exist before attempting to access them, providing a fallback to English or displaying the key if a translation is missing.
 - **Fixed `TypeError: Cannot read properties of undefined (reading 'toLowerCase')` in `generateStatisticalNumbers` function**:
   - Added a more robust check for `draw.weather.condition` to ensure it exists before calling `toLowerCase()` on it.
+- **Enhanced `treasure-canvas` realism in `loading.html`**:
+  - Removed old inline CSS for basic chest animation from `loading.html`.
+  - Updated `treasure.js` to use an image-based treasure chest and implement a sparkling particle system for a more realistic visual effect.
+  - Created placeholder image files (`public/images/treasure-chest.png` and `public/images/treasure-chest-open.png`) for the user to replace with actual images.
+- **SEO Improvements for Google/AI Search**:
+  - **XML Sitemap (`sitemap.xml`)**: Created an XML sitemap in the root directory listing all relevant HTML pages with appropriate last modification dates, change frequencies, and priorities.
+  - **Robots.txt**: Created a `robots.txt` file in the root directory allowing all user agents to crawl and pointing to the sitemap.
+  - **Meta Descriptions**: Ensured all main HTML pages (`index.html`, `about.html`, `blog.html`, `blog-post-1.html`, `contact.html`, `info.html`, `privacy.html`, `terms.html`, `result.html`, `loading.html`) have descriptive `meta name="description"` tags.
+  - **JSON-LD Structured Data**: Added `WebSite` and `Organization` JSON-LD structured data to all relevant HTML pages (`index.html`, `about.html`, `blog.html`, `blog-post-1.html`, `info.html`, `privacy.html`, `terms.html`, `result.html`, `loading.html`).
+  - **Consistent Navigation and Structure**: Uncommented and integrated all navigation links in the footer of all main pages, and ensured consistent header and footer structures across the site.
+  - **Placeholder `privacy.html` and `terms.html`**: Created basic placeholder pages for Privacy Policy and Terms of Service, linked in the footer, which are important for AdSense approval and trustworthiness.
+  - **Content Review for AdSense**: (Note for user) The `about.html`, `blog.html`, and `info.html` pages contain placeholder content and will require substantial, unique, and high-quality content to fully meet AdSense approval requirements.
